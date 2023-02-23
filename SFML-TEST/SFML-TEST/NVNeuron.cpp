@@ -1,23 +1,26 @@
 #include "NVNeuron.h"
 
-NVNeuron::NVNeuron(float seglen, float nsize, std::vector<float> amps):
-	m_seglen(seglen), m_nsize(nsize), m_ampsx(amps), m_ampsy(amps) { }
+NVNeuron::NVNeuron(float seglen, float nsize, std::vector<float> w):
+	m_seglen(seglen), m_nsize(nsize), m_wx(w), m_wy(w) { }
 
-NVNeuron::NVNeuron(float seglen, float nsize, std::vector<float> ampsx, std::vector<float> ampsy):
-	m_seglen(seglen), m_nsize(nsize), m_ampsx(ampsx), m_ampsy(ampsy) { }
+NVNeuron::NVNeuron(float seglen, float nsize, std::vector<float> wx, std::vector<float> wy):
+	m_seglen(seglen), m_nsize(nsize), m_wx(wx), m_wy(wy) { }
 
 NVNeuron::~NVNeuron() { }
 
 void NVNeuron::Step()
 {
+	// Update weights of the curves
+	SetNeuronCircle();
+	SetNeuronCurve();
 	// Breathe
 	if (m_breatheInterval != 0) {
 		float time = GetElapsedTime().asSeconds();
 		float size = m_breatheAmp * (sin(time / m_breatheInterval) + 2);
 		// ERROR: resize should start at 0, 0
 		// TODO: Try to implement the actual resize algorithm
-		m_neuroncurve.resize(size);
-		m_neuroncircle.resize(size);
+		// m_neuroncurve.resize(size);
+		// m_neuroncircle.resize(size);
 	}
 }
 
@@ -33,6 +36,9 @@ void NVNeuron::SetClock(sf::Clock* l_clock) { m_clock = l_clock; }
 
 void NVNeuron::SetBreatheAmp(float l_breatheAmp){ m_breatheAmp = l_breatheAmp; }
 void NVNeuron::SetBreatheInterval(float l_breatheInterval) { m_breatheInterval = l_breatheInterval; }
+
+void NVNeuron::SetWeights(std::vector<float> l_w) { m_wx = l_w; m_wy = l_w; }
+void NVNeuron::SetWeights(std::vector<float> l_wx, std::vector<float> l_wy) { m_wx = l_wx; m_wy = l_wy; }
 
 void NVNeuron::Resize()
 {
@@ -62,15 +68,15 @@ void NVNeuron::SetNeuronCurve()
 {
 	int size = (int)(6.28 / m_seglen);
 	m_neuroncurve = sf::VertexArray(sf::PrimitiveType::LinesStrip, size);
-	int nterm = m_ampsx.size(); // TODO: make the max size and fill the small ones with 0s
+	int nterm = m_wx.size(); // TODO: make the max size and fill the small ones with 0s
 	for (int i = 0; i < size; i++) {
 		float x = 0.0f;
 		float y = 0.0f;
 		float seg = (float)i * m_seglen;
 		for (int j = 0; j < nterm; j++) {
 			float phase = pow(2.0, (float)j);
-			x += m_ampsx[j] * cos(phase * seg);
-			y += m_ampsy[j] * sin(phase * seg);
+			x += m_wx[j] * cos(phase * seg);
+			y += m_wy[j] * sin(phase * seg);
 		}
 		m_neuroncurve[i].position.x = x + m_origin.x;
 		m_neuroncurve[i].position.y = y + m_origin.y;

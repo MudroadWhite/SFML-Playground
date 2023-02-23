@@ -4,8 +4,8 @@
 class NVNeuron
 {
 public:
-	NVNeuron(float seglen, float nsize, std::vector<float> amps);
-	NVNeuron(float seglen, float nsize, std::vector<float> ampsx, std::vector<float> ampsy);
+	NVNeuron(float seglen, float nsize, std::vector<float> w);
+	NVNeuron(float seglen, float nsize, std::vector<float> wx, std::vector<float> wy);
 	~NVNeuron();
 	void Step();
 	sf::Time GetElapsedTime();
@@ -17,6 +17,8 @@ public:
 	void SetBreatheAmp(float l_breatheAmp);
 	void SetBreatheInterval(float l_breatheInterval);
 
+	void SetWeights(std::vector<float> l_w);
+	void SetWeights(std::vector<float> l_wx, std::vector<float> l_wy);
 	void Resize();
 	void SetNeuronCurve();
 	void DrawNeuronCurve();
@@ -30,11 +32,11 @@ private:
 
 	float m_seglen;
 	float m_nsize; // neuron size. The curve will be amplified by the size of the neuron
-	float m_breatheAmp;
-	float m_breatheInterval;
-	std::vector<float> m_ampsx;
-	std::vector<float> m_ampsy;
-	sf::Vector2f m_origin;
+	float m_breatheAmp = 0.f;
+	float m_breatheInterval = 0.f;
+	std::vector<float> m_wx; // weights
+	std::vector<float> m_wy;
+	sf::Vector2f m_origin = sf::Vector2f(0.f, 0.f);
 
 	sf::VertexArray m_neuroncurve;
 	sf::VertexArray m_neuroncircle;
