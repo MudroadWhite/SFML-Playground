@@ -3,6 +3,7 @@
 #include "SimpleGrid.h"
 #include "RotateRectangle.h"
 #include "RotateGrid.h"
+#include "IrregularCircle.h"
 
 void runSimpleGrid() {
 	SimpleGrid simpleGrid(40, 40, 10, 10);
@@ -27,7 +28,12 @@ void runRorateGrid() {
 	rotateGrid.Run();
 }
 
+void runIrregularCircle() {
+	IrregularCircle irregularCircle;
+	irregularCircle.Run();
+}
+
 int main()
 {
-
+	runIrregularCircle();
 }

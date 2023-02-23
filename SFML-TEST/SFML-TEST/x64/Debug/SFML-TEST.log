@@ -1,13 +1,12 @@
-﻿  RotateGrid.cpp
-C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\RotateGrid.cpp(3,130): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+﻿  IrregularCircle.cpp
+C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(52,63): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\RotateGrid.cpp(3,126): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(52,45): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\RotateGrid.cpp(46,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   SFML-TEST.vcxproj -> C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\x64\Debug\SFML-TEST.exe
