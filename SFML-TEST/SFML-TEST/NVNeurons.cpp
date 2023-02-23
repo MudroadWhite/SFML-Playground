@@ -29,7 +29,7 @@ void NVNeurons::Step()
 
 void NVNeurons::Update()
 {
-	m_window.Update();
+	//m_window.Update();
 	srand(time(NULL));
 	Step();
 }

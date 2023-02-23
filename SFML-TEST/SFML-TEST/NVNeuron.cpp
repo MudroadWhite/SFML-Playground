@@ -61,11 +61,11 @@ void NVNeuron::SetNeuronCircle()
 
 void NVNeuron::DrawNeuronCircle() { m_window->Draw(m_neuroncircle); }
 
-// TODO: Determine the size scale for curve
+// Assume that the weight vector is always normalized...
 void NVNeuron::SetNeuronCurve()
 {
 	int size = (int)(6.28 / m_seglen);
-	float shapeSize = 0.05 * m_breatheSize + m_curveSize;
+	float shapeSize = m_breatheSize + m_curveSize;
 	m_neuroncurve = sf::VertexArray(sf::PrimitiveType::LinesStrip, size);
 	int nterm = m_wx.size(); // TODO: make the max size and fill the small ones with 0s
 	for (int i = 0; i < size; i++) {

@@ -1,5 +1,5 @@
 #include "IrregularCircle.h"
-//#include "NVNeuron.h"
+#include "NVNeuron.h"
 
 //Parameters:
 // seglen(segment length),
@@ -27,7 +27,7 @@ void IrregularCircle::Run() {
 	//RunSingleCurve();
 	//RunSingleCircle();
 	//RunSimpleFourierCircle();
-	//RunFourierCircle();
+	RunFourierCircle();
 	//RunNVNeuron();
 }
 
@@ -117,29 +117,29 @@ void IrregularCircle::SetSimpleFourierCircle() {
 	m_curve[(6.29 / 0.02)-1].position.y = m_curve[0].position.y;
 }
 
-//void IrregularCircle::RunNVNeuron()
-//{
-//	NVNeuron neuron(0.01f, 10.f, std::vector<float>{3, 1, 5, 0, 1, 1, 1});
-//	neuron.SetOrigin(sf::Vector2f(400, 300));
-//	neuron.SetClock(&m_clock);
-//	neuron.SetWindow(&m_window);
-//	neuron.SetNeuronCircleSize(60);
-//	neuron.SetNeuronCurveSize(10);
-//	neuron.SetBreatheAmp(3);
-//	neuron.SetBreatheInterval(0.5);
-//
-//	while (!GetWindow()->IsDone()) {
-//		// Update
-//		m_window.Update();
-//		neuron.Step();
-//		srand(time(NULL));
-//		//Render
-//		m_window.BeginDraw();
-//		neuron.DrawNeuronCircle();
-//		neuron.DrawNeuronCurve();
-//		m_window.EndDraw();
-//	}
-//}
+void IrregularCircle::RunNVNeuron()
+{
+	NVNeuron neuron(0.01f, 10.f, std::vector<float>{0.2, 0.2, 0.2, 0.2, -0.2});
+	neuron.SetOrigin(sf::Vector2f(400, 300));
+	neuron.SetClock(&m_clock);
+	neuron.SetWindow(&m_window);
+	neuron.SetNeuronCircleSize(80);
+	neuron.SetNeuronCurveSize(80);
+	neuron.SetBreatheAmp(3);
+	neuron.SetBreatheInterval(0.5);
+
+	while (!GetWindow()->IsDone()) {
+		// Update
+		m_window.Update();
+		neuron.Step();
+		srand(time(NULL));
+		//Render
+		m_window.BeginDraw();
+		neuron.DrawNeuronCircle();
+		neuron.DrawNeuronCurve();
+		m_window.EndDraw();
+	}
+}
 
 void IrregularCircle::DrawSimpleFourierCircle() {
 	m_window.BeginDraw();
@@ -174,7 +174,7 @@ void IrregularCircle::SetFourierCircle()
 			y += m_ampsy[j] * sin(phase * seg);
 		}
 		m_circle[i].position.x = 400 + x;
-		m_circle[i].position.y = 400 + y;
+		m_circle[i].position.y = 300 + y;
 	}
 	//Close the curve
 	m_circle[size - 1].position.x = m_circle[0].position.x;
