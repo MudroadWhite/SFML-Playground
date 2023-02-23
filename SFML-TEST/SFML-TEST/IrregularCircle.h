@@ -4,7 +4,8 @@
 class IrregularCircle
 {
 public:
-	IrregularCircle();
+	IrregularCircle(float l_seglen, std::vector<float> l_amps);
+	IrregularCircle(float l_seglen, std::vector<float> l_ampsx, std::vector<float> l_ampsy);
 	~IrregularCircle();
 	void Render();
 	void Update();
@@ -14,20 +15,16 @@ public:
 	sf::Time GetElapsedTime();
 	Window* GetWindow();
 
-	void SetSeglen(float l_seglen);
-	void SetNterm(float l_nterm);
-
 	void RunSingleCurve();
-	void RunSingleCircle();
-	void RunFourierCircle();
-	void RunSimpleFourierCircle();
-
 	void SetSingleCurve();
 	void DrawSingleCurve();
+	void RunSingleCircle();
 	void SetSingleCircle();
 	void DrawSigleCircle();
+	void RunSimpleFourierCircle();
 	void SetSimpleFourierCircle();
 	void DrawSimpleFourierCircle();
+	void RunFourierCircle();
 	void SetFourierCircle();
 	void DrawFourierCircle();
 
@@ -37,9 +34,11 @@ private:
 	sf::Time m_elapsed;
 	sf::Clock m_clock;
 
-	sf::VertexArray m_curve;
-
+	std::vector<float> m_ampsx;
+	std::vector<float> m_ampsy;
 	float m_seglen;
-	float m_nterm;
+
+	sf::VertexArray m_curve;
+	sf::VertexArray m_circle;
 };
 
