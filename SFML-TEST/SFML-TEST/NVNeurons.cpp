@@ -19,9 +19,19 @@ void NVNeurons::Render()
 
 void NVNeurons::Step()
 {
-	// TODO: 
-	//	update weights of all neurons
-	//  invoke step function for all neurons
+	for (int i = 0; i < m_neurons.size(); i++) {
+		// TODO: update weights...
+
+		// Step all neurons
+		m_neurons[i].Step();
+	}
+}
+
+void NVNeurons::Update()
+{
+	m_window.Update();
+	srand(time(NULL));
+	Step();
 }
 
 void NVNeurons::SetClock(sf::Clock* l_clock) {

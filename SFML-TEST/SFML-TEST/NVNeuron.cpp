@@ -8,21 +8,18 @@ NVNeuron::NVNeuron(float seglen, float nsize, std::vector<float> wx, std::vector
 
 NVNeuron::~NVNeuron() { }
 
-// TODO: 
-//  Test how neuron looks like
-//  Complete the breathe functionality
-
 void NVNeuron::Step()
 {
 	// Update weights of the curves
 	// ...
-	// Breathe
 
+	// Breathe
 	if (m_breatheInterval != 0) {
 		float time = GetElapsedTime().asSeconds();
 		m_breatheSize = m_breatheAmp * sin(time / m_breatheInterval);
 	}
 
+	// Finally determine the shape
 	SetNeuronCircle();
 	SetNeuronCurve();
 }
@@ -64,13 +61,10 @@ void NVNeuron::SetNeuronCircle()
 
 void NVNeuron::DrawNeuronCircle() { m_window->Draw(m_neuroncircle); }
 
-
-// TODO: Draw curve according to size
-// Maybe in the resize function?
+// TODO: Determine the size scale for curve
 void NVNeuron::SetNeuronCurve()
 {
 	int size = (int)(6.28 / m_seglen);
-	// TODO: Determine the size scale for curve
 	float shapeSize = 0.05 * m_breatheSize + m_curveSize;
 	m_neuroncurve = sf::VertexArray(sf::PrimitiveType::LinesStrip, size);
 	int nterm = m_wx.size(); // TODO: make the max size and fill the small ones with 0s

@@ -41,10 +41,6 @@ void runIrregularCircle() {
 	irregularCircle.Run();
 }
 
-void runNVNeuron() { 
-	
-}
-
 int main()
 {
 	runIrregularCircle();
