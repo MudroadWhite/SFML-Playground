@@ -139,21 +139,21 @@ void IrregularCircle::RunFourierCircle()
 void IrregularCircle::SetFourierCircle()
 {
 	int size = (int)(6.28 / m_seglen);
-	//int size = 8;
-	int nterm = m_ampsx.size();
+	int nterm = m_ampsx.size(); // TODO: make the max size and fill the small ones with 0s
 	m_circle = sf::VertexArray(sf::PrimitiveType::LinesStrip, size);
 	for (int i = 0; i < size; i++) {
 		float x = 0.0f;
 		float y = 0.0f;
 		float seg = (float)i * m_seglen;
 		for (int j = 0; j < nterm; j++) {
-			x += m_ampsx[j] * cos(pow(2.0, (float)j) * seg);
-			y += m_ampsy[j] * sin(pow(2.0, (float)j) * seg);
+			float phase = pow(2.0, (float)j);
+			x += m_ampsx[j] * cos(phase * seg);
+			y += m_ampsy[j] * sin(phase * seg);
 		}
 		m_circle[i].position.x = 400 + x;
 		m_circle[i].position.y = 400 + y;
 	}
-	// close the curve
+	//Close the curve
 	m_circle[size - 1].position.x = m_circle[0].position.x;
 	m_circle[size - 1].position.y = m_circle[0].position.y;
 }

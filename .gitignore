@@ -1,2 +1,12 @@
 .vs/
 .vs/*
+.vscode/
+.vsvode/*
+SFML-TEST/.vs/
+SFML-TEST/.vs/*
+SFML-TEST/.vs/Debug/
+SFML-TEST/.vs/Debug/*
+SFML-TEST/SFML-TEST/Debug/
+SFML-TEST/SFML-TEST/Debug/*
+SFML-TEST/SFML-TEST/x64/
+SFML-TEST/SFML-TEST/x64/*

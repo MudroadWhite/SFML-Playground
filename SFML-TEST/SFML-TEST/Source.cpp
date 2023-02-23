@@ -29,8 +29,9 @@ void runRorateGrid() {
 }
 
 void runIrregularCircle() {
-	std::vector<float> amps{60, 3, 10, 1, 1, 5};
-	IrregularCircle irregularCircle(0.01, amps);
+	std::vector<float> ampsx{60,  3, 10,  1,  1, 5};
+	std::vector<float> ampsy{10, 20, 40, 50, 30, 0};
+	IrregularCircle irregularCircle(0.01, ampsx, ampsy);
 	irregularCircle.Run();
 }
 
