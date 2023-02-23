@@ -1,14 +1,10 @@
 #include "IrregularCircle.h"
 
-//parameters:
+//Parameters:
 // seglen(segment length),
-// nterm(number of term), 
-// amps(amplitude for each phases)
+// ampsx(amplitude for each phases at x)
+// ampsy(amplitude for each phases at y axis)
 
-//NOTE:
-// Fourier transform in its exponential form:
-// S(N, x) = Sum(-N, N, c[n] * e^i^((2 * pi * n * x) / P))
-// a * sin(theta) / pi + a * sin(2 * theta) / (2 * pi) + a * sin(3 * theta) / (3 * pi)...
 IrregularCircle::IrregularCircle(float l_seglen, std::vector<float> l_amps) :
 	m_window("Irregular Circle", sf::Vector2u(800, 600)),
 	m_seglen(l_seglen), m_ampsx(l_amps), m_ampsy(l_amps)
@@ -87,7 +83,7 @@ void IrregularCircle::SetSingleCircle()
 	{
 		double xx = x * 0.02;
 		m_curve[x].position.x = 100 * cos(xx) + 400;
-		m_curve[x].position.y = 100 * sin(xx) + 400;
+		m_curve[x].position.y = 100 * sin(xx) + 300;
 	}
 }
 
@@ -147,6 +143,7 @@ void IrregularCircle::SetFourierCircle()
 		float seg = (float)i * m_seglen;
 		for (int j = 0; j < nterm; j++) {
 			float phase = pow(2.0, (float)j);
+			//float phase = j;
 			x += m_ampsx[j] * cos(phase * seg);
 			y += m_ampsy[j] * sin(phase * seg);
 		}

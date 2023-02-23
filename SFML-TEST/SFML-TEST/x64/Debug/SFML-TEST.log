@@ -1,40 +1,37 @@
 ﻿  IrregularCircle.cpp
-C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(40,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(64,64): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(36,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(60,64): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(64,45): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(60,45): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(89,41): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(85,41): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(90,41): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(86,41): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(114,85): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(110,85): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(115,66): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(111,66): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(118,23): warning C4244: 'argument': conversion from 'double' to 'size_t', possible loss of data
-C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(119,23): warning C4244: 'argument': conversion from 'double' to 'size_t', possible loss of data
-C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(142,28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(149,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  Source.cpp
-C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\Source.cpp(34,52): warning C4305: 'argument': truncation from 'double' to 'float'
-  Generating Code...
+C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(114,23): warning C4244: 'argument': conversion from 'double' to 'size_t', possible loss of data
+C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(115,23): warning C4244: 'argument': conversion from 'double' to 'size_t', possible loss of data
+C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(138,28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\SFML-TEST\IrregularCircle.cpp(145,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   SFML-TEST.vcxproj -> C:\Users\hilov\Desktop\CODE\sfml-test\SFML-TEST\x64\Debug\SFML-TEST.exe
