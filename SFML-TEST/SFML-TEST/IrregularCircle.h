@@ -30,7 +30,6 @@ public:
 
 private:
 	Window m_window;
-	sf::Vector2f m_dimensionSize;
 	sf::Time m_elapsed;
 	sf::Clock m_clock;
 
