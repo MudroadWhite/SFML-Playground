@@ -9,11 +9,12 @@ public:
 	~NVNeurons();
 	void Render();
 	void Step();
+	void Update(); // receive events for window?
 	void SetClock(sf::Clock* l_clock);
 	void SetWindow(Window* l_window);
 	void SetBreatheAmp(float l_breatheAmp);
 	void SetBreatheInterval(float l_breatheInterval);
-	void SetWeight(int dx, int dy, std::vector<float> w);
+	void SetWeights(int dx, int dy, std::vector<float> w);
 	void SetMargin(float l_m);
 	void SetMargin(float l_mx, float l_my);
 private:
@@ -26,6 +27,8 @@ private:
 
 	std::vector<std::vector<float>> m_weights;
 	std::vector<NVNeuron> m_neurons;
+
+	// TODO: window and clock should be put here?
 
 	// TODO: Draw connections between the neurons
 };

@@ -28,6 +28,8 @@ public:
 	void SetFourierCircle();
 	void DrawFourierCircle();
 
+	void RunNVNeuron();
+
 private:
 	Window m_window;
 	sf::Time m_elapsed;

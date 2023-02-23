@@ -154,6 +154,9 @@
     <ClCompile Include="DrawableNode.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="IrregularCircle.cpp" />
+    <ClCompile Include="NeuronVisualization.cpp" />
+    <ClCompile Include="NVNeuron.cpp" />
+    <ClCompile Include="NVNeurons.cpp" />
     <ClCompile Include="RotateGrid.cpp" />
     <ClCompile Include="RotateRectangle.cpp" />
     <ClCompile Include="ShinningShape.cpp" />
@@ -166,6 +169,9 @@
     <ClInclude Include="DrawableNode.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="IrregularCircle.h" />
+    <ClInclude Include="NeuronVisualization.h" />
+    <ClInclude Include="NVNeuron.h" />
+    <ClInclude Include="NVNeurons.h" />
     <ClInclude Include="RotateGrid.h" />
     <ClInclude Include="RotateRectangle.h" />
     <ClInclude Include="ShinningShape.h" />

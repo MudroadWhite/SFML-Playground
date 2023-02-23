@@ -1,4 +1,5 @@
 #include "IrregularCircle.h"
+#include "NVNeuron.h"
 
 //Parameters:
 // seglen(segment length),
@@ -26,7 +27,8 @@ void IrregularCircle::Run() {
 	//RunSingleCurve();
 	//RunSingleCircle();
 	//RunSimpleFourierCircle();
-	RunFourierCircle();
+	//RunFourierCircle();
+	RunNVNeuron();
 }
 
 void IrregularCircle::Render() { }
@@ -113,6 +115,30 @@ void IrregularCircle::SetSimpleFourierCircle() {
 	// close the shape
 	m_curve[(6.29 / 0.02)-1].position.x = m_curve[0].position.x;
 	m_curve[(6.29 / 0.02)-1].position.y = m_curve[0].position.y;
+}
+
+void IrregularCircle::RunNVNeuron()
+{
+	NVNeuron neuron(0.1f, 10.f, std::vector<float>{20, 10, 5, 0, 0, 1});
+	neuron.SetOrigin(sf::Vector2f(400, 300));
+	neuron.SetClock(&m_clock);
+	neuron.SetWindow(&m_window);
+	neuron.SetNeuronCircleSize(40);
+	neuron.SetNeuronCurveSize(1);
+	neuron.SetBreatheAmp(5);
+	neuron.SetBreatheInterval(0.5);
+
+	while (!GetWindow()->IsDone()) {
+		// Update
+		m_window.Update();
+		neuron.Step();
+		srand(time(NULL));
+		//Render
+		m_window.BeginDraw();
+		neuron.DrawNeuronCircle();
+		neuron.DrawNeuronCurve();
+		m_window.EndDraw();
+	}
 }
 
 void IrregularCircle::DrawSimpleFourierCircle() {

@@ -8,20 +8,23 @@ NVNeuron::NVNeuron(float seglen, float nsize, std::vector<float> wx, std::vector
 
 NVNeuron::~NVNeuron() { }
 
+// TODO: 
+//  Test how neuron looks like
+//  Complete the breathe functionality
+
 void NVNeuron::Step()
 {
 	// Update weights of the curves
-	SetNeuronCircle();
-	SetNeuronCurve();
+	// ...
 	// Breathe
+
 	if (m_breatheInterval != 0) {
 		float time = GetElapsedTime().asSeconds();
-		float size = m_breatheAmp * (sin(time / m_breatheInterval) + 2);
-		// ERROR: resize should start at 0, 0
-		// TODO: Try to implement the actual resize algorithm
-		// m_neuroncurve.resize(size);
-		// m_neuroncircle.resize(size);
+		m_breatheSize = m_breatheAmp * sin(time / m_breatheInterval);
 	}
+
+	SetNeuronCircle();
+	SetNeuronCurve();
 }
 
 sf::Time NVNeuron::GetElapsedTime() { return m_clock->getElapsedTime(); }
@@ -40,19 +43,19 @@ void NVNeuron::SetBreatheInterval(float l_breatheInterval) { m_breatheInterval =
 void NVNeuron::SetWeights(std::vector<float> l_w) { m_wx = l_w; m_wy = l_w; }
 void NVNeuron::SetWeights(std::vector<float> l_wx, std::vector<float> l_wy) { m_wx = l_wx; m_wy = l_wy; }
 
-void NVNeuron::Resize()
-{
-}
+void NVNeuron::SetNeuronCircleSize(float l_circlesize) { m_circleSize = l_circlesize; }
+void NVNeuron::SetNeuronCurveSize(float l_curvesize) { m_curveSize = l_curvesize; }
 
 void NVNeuron::SetNeuronCircle()
 {
 	int size = (int)(6.28 / m_seglen);
+	float shapeSize = m_circleSize + m_breatheSize;
 	m_neuroncircle = sf::VertexArray(sf::PrimitiveType::LinesStrip, size);
 	for (int x = 0; x < size; x++)
 	{
 		double seg = x * m_seglen;
-		m_neuroncircle[x].position.x = m_nsize * cos(seg) + m_origin.x;
-		m_neuroncircle[x].position.y = m_nsize * sin(seg) + m_origin.y;
+		m_neuroncircle[x].position.x = shapeSize * cos(seg) + m_origin.x;
+		m_neuroncircle[x].position.y = shapeSize * sin(seg) + m_origin.y;
 	}
 	// close the curve
 	m_neuroncircle[size - 1].position.x = m_neuroncircle[0].position.x;
@@ -67,6 +70,8 @@ void NVNeuron::DrawNeuronCircle() { m_window->Draw(m_neuroncircle); }
 void NVNeuron::SetNeuronCurve()
 {
 	int size = (int)(6.28 / m_seglen);
+	// TODO: Determine the size scale for curve
+	float shapeSize = 0.05 * m_breatheSize + m_curveSize;
 	m_neuroncurve = sf::VertexArray(sf::PrimitiveType::LinesStrip, size);
 	int nterm = m_wx.size(); // TODO: make the max size and fill the small ones with 0s
 	for (int i = 0; i < size; i++) {
@@ -78,8 +83,8 @@ void NVNeuron::SetNeuronCurve()
 			x += m_wx[j] * cos(phase * seg);
 			y += m_wy[j] * sin(phase * seg);
 		}
-		m_neuroncurve[i].position.x = x + m_origin.x;
-		m_neuroncurve[i].position.y = y + m_origin.y;
+		m_neuroncurve[i].position.x = shapeSize * x + m_origin.x;
+		m_neuroncurve[i].position.y = shapeSize * y + m_origin.y;
 	}
 	//Close the curve
 	m_neuroncurve[size - 1].position.x = m_neuroncurve[0].position.x;

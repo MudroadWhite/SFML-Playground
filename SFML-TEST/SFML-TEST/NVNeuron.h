@@ -19,6 +19,8 @@ public:
 
 	void SetWeights(std::vector<float> l_w);
 	void SetWeights(std::vector<float> l_wx, std::vector<float> l_wy);
+	void SetNeuronCircleSize(float l_circlesize);
+	void SetNeuronCurveSize(float l_curvesize);
 	void Resize();
 	void SetNeuronCurve();
 	void DrawNeuronCurve();
@@ -34,6 +36,10 @@ private:
 	float m_nsize; // neuron size. The curve will be amplified by the size of the neuron
 	float m_breatheAmp = 0.f;
 	float m_breatheInterval = 0.f;
+	float m_circleSize = 1.f;
+	float m_curveSize = 1.f;
+	float m_breatheSize = 0;
+
 	std::vector<float> m_wx; // weights
 	std::vector<float> m_wy;
 	sf::Vector2f m_origin = sf::Vector2f(0.f, 0.f);

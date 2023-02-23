@@ -4,6 +4,7 @@
 #include "RotateRectangle.h"
 #include "RotateGrid.h"
 #include "IrregularCircle.h"
+#include "NVNeuron.h"
 
 void runSimpleGrid() {
 	SimpleGrid simpleGrid(40, 40, 10, 10);
@@ -38,6 +39,10 @@ void runIrregularCircle() {
 	IrregularCircle irregularCircle(0.01, ampsx);
 	//IrregularCircle irregularCircle(0.01, ampsx, ampsy);
 	irregularCircle.Run();
+}
+
+void runNVNeuron() { 
+	
 }
 
 int main()
