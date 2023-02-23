@@ -17,8 +17,19 @@ public:
 	void SetSeglen(float l_seglen);
 	void SetNterm(float l_nterm);
 
+	void RunSingleCurve();
+	void RunSingleCircle();
+	void RunFourierCircle();
+	void RunSimpleFourierCircle();
+
 	void SetSingleCurve();
 	void DrawSingleCurve();
+	void SetSingleCircle();
+	void DrawSigleCircle();
+	void SetSimpleFourierCircle();
+	void DrawSimpleFourierCircle();
+	void SetFourierCircle();
+	void DrawFourierCircle();
 
 private:
 	Window m_window;
