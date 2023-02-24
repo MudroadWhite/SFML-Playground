@@ -1,5 +1,7 @@
 #include "NVNeuron.h"
 
+// TODO: separate neuron curve and neuron circle and make them into decoupled drawables
+
 NVNeuron::NVNeuron(float seglen, float nsize, std::vector<float> w):
 	m_seglen(seglen), m_nsize(nsize), m_wx(w), m_wy(w) { }
 

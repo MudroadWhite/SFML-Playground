@@ -6,7 +6,7 @@
 class NVNeurons
 {
 public:
-	NVNeurons(Window* window, sf::Clock* clock, std::vector<std::vector<float>> weights, sf::Vector2f origin);
+	NVNeurons(Window* window, sf::Clock* clock, std::vector<std::vector<std::vector<float>>> weights, sf::Vector2f origin);
 	~NVNeurons();
 	void Render();
 	void Step();
@@ -27,7 +27,7 @@ private:
 	float m_marginy;
 	sf::Vector2f m_origin;
 
-	std::vector<std::vector<float>> m_weights;
+	std::vector<std::vector<std::vector<float>>> m_weights;
 	std::vector<NVNeuron> m_neurons;
 
 	// TODO: window and clock should be put here?

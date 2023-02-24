@@ -29,7 +29,8 @@ void IrregularCircle::Run() {
 	//RunSingleCircle();
 	//RunSimpleFourierCircle();
 	//RunFourierCircle();
-	RunNVNeuron();
+	//RunNVNeuron();
+	RunNVNeurons();
 }
 
 void IrregularCircle::Render() { }
@@ -142,8 +143,30 @@ void IrregularCircle::RunNVNeuron()
 	}
 }
 
-void IrregularCircle::RunNVNeurons(){
-	NVNeurons neurons();
+void IrregularCircle::RunNVNeurons() {
+	std::vector<std::vector<std::vector<float>>> weights 
+	{
+		//{{{0.2f, 0.2f, 0.2f, 0.2f, 0.2f}}}
+		{{0.2f, 0.2f, 0.2f, 0.2f, 0.2f},
+		{0.1f, 0.2f, 0.3f, 0.1f, 0.3f}},
+
+		{{0.1f, 0.2f, 0.3f, 0.1f, 0.3f},
+		{0.2f, 0.2f, 0.2f, 0.2f, 0.2f}}
+	};
+
+	NVNeurons neurons(&m_window, &m_clock, weights, sf::Vector2f(80.f, 400.f));
+	neurons.SetMargin(120.f);
+	neurons.SetupNeurons();
+
+	while (!GetWindow()->IsDone()) {
+		m_window.Update();
+		neurons.Step();
+		srand(time(NULL));
+		m_window.BeginDraw();
+		neurons.Render();
+		m_window.EndDraw();
+	}
+
 }
 
 void IrregularCircle::DrawSimpleFourierCircle() {

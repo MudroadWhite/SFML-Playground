@@ -1,7 +1,10 @@
 #include "NVNeurons.h"
 //#include "Window.h"
+#include <iostream>
 
-NVNeurons::NVNeurons(Window* window, sf::Clock* clock, std::vector<std::vector<float>> weights, sf::Vector2f origin) :
+// TODO: Properlly set up size so that it finds the max size of all
+// NOTE: It will affect places where m_dy being used in the loop
+NVNeurons::NVNeurons(Window* window, sf::Clock* clock, std::vector<std::vector<std::vector<float>>> weights, sf::Vector2f origin) :
 	m_dx(weights.size()), m_dy(weights[0].size()),
 	m_origin(origin), m_window(window), m_clock(clock),
 	m_weights(weights){ 
@@ -27,6 +30,7 @@ void NVNeurons::Step()
 		// TODO: update weights...
 
 		// Step all neurons
+		//std::cout << "Executing for loop " << i << std::endl;
 		m_neurons[i].Step();
 	}
 }
@@ -40,13 +44,15 @@ void NVNeurons::Update()
 
 void NVNeurons::SetupNeurons()
 {
+	// TODO: Organize the Neurons well.
+	// Make each layer of neurons being well aligned horizontally in the center
 	for (int i = 0; i < m_dx; i++) {
 		for (int j = 0; j < m_dy; j++) {
-			std::vector<float> w = m_weights[m_dx * i + j];
+			std::vector<float> w = m_weights[i][j];
 			// can be also changed into full zeros
 			NVNeuron neuron(0.01, 10, w);
 			float x = i * m_marginx + m_origin.x;
-			float y = j * m_marginy + m_origin.y;
+			float y = ( -(float) m_dy / 2.0f + j) * m_marginy + m_origin.y;
 			neuron.SetOrigin(sf::Vector2f(x, y));
 			neuron.SetClock(m_clock);
 			neuron.SetWindow(m_window);
@@ -54,6 +60,8 @@ void NVNeurons::SetupNeurons()
 			neuron.SetBreatheInterval(0.5);
 			neuron.SetNeuronCircleSize(40);
 			neuron.SetNeuronCurveSize(40);
+
+			m_neurons.push_back(neuron);
 		}
 	}
 }
