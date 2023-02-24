@@ -15,10 +15,10 @@
 // TODO:
 // 0. SET FRAME RATE
 // -. draw neurons (NVNeuron)
-// 2. organize neurons so that they are aligned well (NVNeurons)
+// -. organize neurons so that they are aligned well (NVNeurons)
 // -. make neurons breathe (NVNeuron)
 // 4. implement neuron related algorithms? (NVNetwork)
-// 5. make the update step-wise (NVControl)
+// 5. make the update step-wise (NVControl?)
 // 6. Finally, possibly add a mouse button and more other functionalities
 
 NeuronVisualization::NeuronVisualization()

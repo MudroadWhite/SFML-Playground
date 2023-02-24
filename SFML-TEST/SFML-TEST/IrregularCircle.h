@@ -29,6 +29,7 @@ public:
 	void DrawFourierCircle();
 
 	void RunNVNeuron();
+	void RunNVNeurons();
 
 private:
 	Window m_window;

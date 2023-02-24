@@ -1,5 +1,6 @@
 #include "IrregularCircle.h"
 #include "NVNeuron.h"
+#include "NVNeurons.h"
 
 //Parameters:
 // seglen(segment length),
@@ -27,8 +28,8 @@ void IrregularCircle::Run() {
 	//RunSingleCurve();
 	//RunSingleCircle();
 	//RunSimpleFourierCircle();
-	RunFourierCircle();
-	//RunNVNeuron();
+	//RunFourierCircle();
+	RunNVNeuron();
 }
 
 void IrregularCircle::Render() { }
@@ -139,6 +140,10 @@ void IrregularCircle::RunNVNeuron()
 		neuron.DrawNeuronCurve();
 		m_window.EndDraw();
 	}
+}
+
+void IrregularCircle::RunNVNeurons(){
+	NVNeurons neurons();
 }
 
 void IrregularCircle::DrawSimpleFourierCircle() {

@@ -1,16 +1,20 @@
 #include "NVNeurons.h"
+//#include "Window.h"
 
-NVNeurons::NVNeurons()
-{
+NVNeurons::NVNeurons(Window* window, sf::Clock* clock, std::vector<std::vector<float>> weights, sf::Vector2f origin) :
+	m_dx(weights.size()), m_dy(weights[0].size()),
+	m_origin(origin), m_window(window), m_clock(clock),
+	m_weights(weights){ 
+	// TO USE:
+	// 1. Manually set up margin
+	// 2. invoke SetupNeurons()
+	// 3. run() in NV
 }
 
-NVNeurons::~NVNeurons()
-{
-}
+NVNeurons::~NVNeurons() { }
 
 void NVNeurons::Render()
 {
-	// begindraw?
 	for (int i = 0; i < m_neurons.size(); i++) {
 		m_neurons[i].DrawNeuronCircle();
 		m_neurons[i].DrawNeuronCurve();
@@ -34,13 +38,33 @@ void NVNeurons::Update()
 	Step();
 }
 
-void NVNeurons::SetClock(sf::Clock* l_clock) {
+void NVNeurons::SetupNeurons()
+{
+	for (int i = 0; i < m_dx; i++) {
+		for (int j = 0; j < m_dy; j++) {
+			std::vector<float> w = m_weights[m_dx * i + j];
+			// can be also changed into full zeros
+			NVNeuron neuron(0.01, 10, w);
+			float x = i * m_marginx + m_origin.x;
+			float y = j * m_marginy + m_origin.y;
+			neuron.SetOrigin(sf::Vector2f(x, y));
+			neuron.SetClock(m_clock);
+			neuron.SetWindow(m_window);
+			neuron.SetBreatheAmp(3);
+			neuron.SetBreatheInterval(0.5);
+			neuron.SetNeuronCircleSize(40);
+			neuron.SetNeuronCurveSize(40);
+		}
+	}
+}
+
+void NVNeurons::SetNeuronsClock(sf::Clock* l_clock) {
 	for (int i = 0; i < m_neurons.size(); i++) {
 		m_neurons[i].SetClock(l_clock);
 	}
 }
 
-void NVNeurons::SetWindow(Window* l_window) {
+void NVNeurons::SetNeuronsWindow(Window* l_window) {
 	for (int i = 0; i < m_neurons.size(); i++) {
 		m_neurons[i].SetWindow(l_window);
 	}

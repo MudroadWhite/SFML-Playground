@@ -1,17 +1,19 @@
 #pragma once
 #include "NVNeuron.h"
 
+// IMPORTANT TODO: change neurons weights to 3D vector
 
 class NVNeurons
 {
 public:
-	NVNeurons();
+	NVNeurons(Window* window, sf::Clock* clock, std::vector<std::vector<float>> weights, sf::Vector2f origin);
 	~NVNeurons();
 	void Render();
 	void Step();
 	void Update(); // receive events for window?
-	void SetClock(sf::Clock* l_clock);
-	void SetWindow(Window* l_window);
+	void SetupNeurons();
+	void SetNeuronsClock(sf::Clock* l_clock);
+	void SetNeuronsWindow(Window* l_window);
 	void SetBreatheAmp(float l_breatheAmp);
 	void SetBreatheInterval(float l_breatheInterval);
 	void SetWeights(int dx, int dy, std::vector<float> w);
@@ -29,6 +31,9 @@ private:
 	std::vector<NVNeuron> m_neurons;
 
 	// TODO: window and clock should be put here?
+
+	sf::Clock* m_clock;
+	Window* m_window;
 
 	// TODO: Draw connections between the neurons
 };
