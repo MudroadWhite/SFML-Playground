@@ -150,8 +150,9 @@ void IrregularCircle::RunNVNeurons() {
 		{{0.2f, 0.2f, 0.2f, 0.2f, 0.2f},
 		{0.1f, 0.2f, 0.3f, 0.1f, 0.3f}},
 
-		{{0.1f, 0.2f, 0.3f, 0.1f, 0.3f},
-		{0.2f, 0.2f, 0.2f, 0.2f, 0.2f}}
+		{{0.1f, 0.2f, 0.3f, 0.1f, 0.2f, 0.1f},
+		{0.2f, 0.2f, 0.2f, 0.2f, 0.2f, 0.1f}, 
+		{0.1f, 0.2f, 0.3f, 0.2f, 0.2f, 0.1f}}
 	};
 
 	NVNeurons neurons(&m_window, &m_clock, weights, sf::Vector2f(80.f, 400.f));

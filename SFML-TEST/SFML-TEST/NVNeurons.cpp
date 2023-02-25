@@ -4,17 +4,15 @@
 //#include "Window.h"
 #include <iostream>
 
-// TODO: Properlly set up size so that it finds the max size of all
-// NOTE: It will affect places where m_dy being used in the loop
+// NOTE: TO USE:
+//  1. Manually set up margin
+//  2. invoke SetupNeurons()
+//  3. run() in NV
+
 NVNeurons::NVNeurons(Window* window, sf::Clock* clock, std::vector<std::vector<std::vector<float>>> weights, sf::Vector2f origin) :
-	m_dx(weights.size()), m_dy(weights[0].size()),
+	m_layers(weights.size()),
 	m_origin(origin), m_window(window), m_clock(clock),
-	m_weights(weights){ 
-	// TO USE:
-	// 1. Manually set up margin
-	// 2. invoke SetupNeurons()
-	// 3. run() in NV
-}
+	m_weights(weights){ }
 
 NVNeurons::~NVNeurons() { }
 
@@ -44,14 +42,13 @@ void NVNeurons::Update()
 
 void NVNeurons::Init()
 {
-	// TODO: Organize the Neurons well.
-	// Make each layer of neurons being well aligned horizontally in the center
-	for (int i = 0; i < m_dx; i++) {
-		for (int j = 0; j < m_dy; j++) {
+	for (int i = 0; i < m_layers; i++) {
+		int dy = m_weights[i].size();
+		for (int j = 0; j < dy; j++) {
 			std::vector<float> w = m_weights[i][j];
 			// can be also changed into full zeros
 			float x = i * m_marginx + m_origin.x;
-			float y = ( -(float) m_dy / 2.0f + j) * m_marginy + m_origin.y;
+			float y = (-(float) dy / 2.0f + j) * m_marginy + m_origin.y;
 			sf::Vector2f origin(x, y);
 
 			NVNeuronShape shape{ 

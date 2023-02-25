@@ -6,16 +6,14 @@
 // 3. vectors of neurons
 
 // Class related:
-// NV has NVNeurons (Visual)
-// NVNeurons has NVNeuron
 // NV has NVNetwork (Model / real training)
 // NV has NVControl (Control)
 // NV has NVLib
 
 // TODO:
-// 0. SET FRAME RATE
-// -. draw neurons (NVNeuron)
-// -. organize neurons so that they are aligned well (NVNeurons)
+// x. SET FRAME RATE
+// x. draw neurons (NVNeuron)
+// x. organize neurons so that they are aligned well (NVNeurons)
 // -. make neurons breathe (NVNeuron)
 // 4. implement neuron related algorithms? (NVNetwork)
 // 5. make the update step-wise (NVControl?)

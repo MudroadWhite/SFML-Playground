@@ -27,8 +27,7 @@ public:
 	void SetMargin(float l_m);
 	void SetMargin(float l_mx, float l_my);
 private:
-	int m_dx; // dimension size at x axis
-	int m_dy; // dimension size at y axis
+	int m_layers; // dimension size at x axis
 
 	float m_marginx;
 	float m_marginy;
