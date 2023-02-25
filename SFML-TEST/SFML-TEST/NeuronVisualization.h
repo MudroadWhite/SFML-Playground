@@ -1,5 +1,6 @@
 #pragma once
 #include "Window.h"
+#include "NVNeurons.h"
 class NeuronVisualization
 {
 public:
@@ -17,5 +18,7 @@ private:
 	Window m_window;
 	sf::Time m_elapsed;
 	sf::Clock m_clock;
+
+	NVNeurons neurons;
 };
 

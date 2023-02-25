@@ -163,6 +163,7 @@ void IrregularCircle::RunNVNeurons() {
 		m_window.Update();
 		neurons.Step();
 		srand(time(NULL));
+
 		m_window.BeginDraw();
 		neurons.Render();
 		m_window.EndDraw();

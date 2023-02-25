@@ -33,12 +33,12 @@ void NVNeurons::Step() {
 	}
 }
 
-void NVNeurons::Update()
-{
-	//m_window.Update(); //???
-	srand(time(NULL));
-	Step();
-}
+//void NVNeurons::Update()
+//{
+//	//m_window.Update(); //???
+//	srand(time(NULL));
+//	Step();
+//}
 
 void NVNeurons::Init()
 {
@@ -65,14 +65,14 @@ void NVNeurons::Init()
 	}
 }
 
-void NVNeurons::SetNeuronsClock(sf::Clock* l_clock) {
+void NVNeurons::SetClock(sf::Clock* l_clock) {
 	for (int i = 0; i < m_neurons.size(); i++) {
 		m_neurons[i].circle.SetClock(l_clock);
 		m_neurons[i].curve.SetClock(l_clock);
 	}
 }
 
-void NVNeurons::SetNeuronsWindow(Window* l_window) {
+void NVNeurons::SetWindow(Window* l_window) {
 	for (int i = 0; i < m_neurons.size(); i++) {
 		m_neurons[i].circle.SetWindow(l_window);
 		m_neurons[i].curve.SetWindow(l_window);

@@ -2,8 +2,10 @@
 
 // Visualization for perceptrons and simple layer NNs
 
-// Parameters:
-// 3. vectors of neurons
+
+// Init:
+// 1. Weights (optional?)
+// 2. Neurons layout (what structure? is it necessary?)
 
 // Class related:
 // NV has NVNetwork (Model / real training)
@@ -14,7 +16,7 @@
 // x. SET FRAME RATE
 // x. draw neurons (NVNeuron)
 // x. organize neurons so that they are aligned well (NVNeurons)
-// -. make neurons breathe (NVNeuron)
+// x. make neurons breathe (NVNeuron)
 // 4. implement neuron related algorithms? (NVNetwork)
 // 5. make the update step-wise (NVControl?)
 // 6. Finally, possibly add a mouse button and more other functionalities

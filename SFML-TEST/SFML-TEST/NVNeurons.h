@@ -17,18 +17,18 @@ public:
 	~NVNeurons();
 	void Render();
 	void Step();
-	void Update(); // receive events for window?
+	//void Update(); // receive events for window?
 	void Init();
-	void SetNeuronsClock(sf::Clock* l_clock);
-	void SetNeuronsWindow(Window* l_window);
 	void SetBreatheAmp(float l_breatheAmp);
 	void SetBreatheInterval(float l_breatheInterval);
 	void SetWeights(int dx, int dy, std::vector<float> w);
 	void SetMargin(float l_m);
 	void SetMargin(float l_mx, float l_my);
 private:
-	int m_layers; // dimension size at x axis
+	void SetClock(sf::Clock* l_clock);
+	void SetWindow(Window* l_window);
 
+	int m_layers;
 	float m_marginx;
 	float m_marginy;
 	sf::Vector2f m_origin;
