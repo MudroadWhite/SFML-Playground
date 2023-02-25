@@ -121,26 +121,26 @@ void IrregularCircle::SetSimpleFourierCircle() {
 
 void IrregularCircle::RunNVNeuron()
 {
-	NVNeuron neuron(0.01f, 10.f, std::vector<float>{0.2, 0.2, 0.2, 0.2, -0.2});
-	neuron.SetOrigin(sf::Vector2f(400, 300));
-	neuron.SetClock(&m_clock);
-	neuron.SetWindow(&m_window);
-	neuron.SetNeuronCircleSize(80);
-	neuron.SetNeuronCurveSize(80);
-	neuron.SetBreatheAmp(3);
-	neuron.SetBreatheInterval(0.5);
+	//NVNeuron neuron(0.01f, 10.f, std::vector<float>{0.2, 0.2, 0.2, 0.2, -0.2});
+	//neuron.SetOrigin(sf::Vector2f(400, 300));
+	//neuron.SetClock(&m_clock);
+	//neuron.SetWindow(&m_window);
+	//neuron.SetNeuronCircleSize(80);
+	//neuron.SetNeuronCurveSize(80);
+	//neuron.SetBreatheAmp(3);
+	//neuron.SetBreatheInterval(0.5);
 
-	while (!GetWindow()->IsDone()) {
-		// Update
-		m_window.Update();
-		neuron.Step();
-		srand(time(NULL));
-		//Render
-		m_window.BeginDraw();
-		neuron.DrawNeuronCircle();
-		neuron.DrawNeuronCurve();
-		m_window.EndDraw();
-	}
+	//while (!GetWindow()->IsDone()) {
+	//	// Update
+	//	m_window.Update();
+	//	neuron.Step();
+	//	srand(time(NULL));
+	//	//Render
+	//	m_window.BeginDraw();
+	//	neuron.DrawNeuronCircle();
+	//	neuron.DrawNeuronCurve();
+	//	m_window.EndDraw();
+	//}
 }
 
 void IrregularCircle::RunNVNeurons() {
@@ -156,7 +156,7 @@ void IrregularCircle::RunNVNeurons() {
 
 	NVNeurons neurons(&m_window, &m_clock, weights, sf::Vector2f(80.f, 400.f));
 	neurons.SetMargin(120.f);
-	neurons.SetupNeurons();
+	neurons.Init();
 
 	while (!GetWindow()->IsDone()) {
 		m_window.Update();

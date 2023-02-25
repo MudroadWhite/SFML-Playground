@@ -54,6 +54,12 @@
     <ClCompile Include="NVNeurons.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NVNeuronCircle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NVNeuronCurve.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -90,6 +96,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NVNeurons.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NVNeuronCircle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NVNeuronCurve.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

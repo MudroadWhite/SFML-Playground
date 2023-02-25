@@ -156,6 +156,8 @@
     <ClCompile Include="IrregularCircle.cpp" />
     <ClCompile Include="NeuronVisualization.cpp" />
     <ClCompile Include="NVNeuron.cpp" />
+    <ClCompile Include="NVNeuronCircle.cpp" />
+    <ClCompile Include="NVNeuronCurve.cpp" />
     <ClCompile Include="NVNeurons.cpp" />
     <ClCompile Include="RotateGrid.cpp" />
     <ClCompile Include="RotateRectangle.cpp" />
@@ -171,6 +173,8 @@
     <ClInclude Include="IrregularCircle.h" />
     <ClInclude Include="NeuronVisualization.h" />
     <ClInclude Include="NVNeuron.h" />
+    <ClInclude Include="NVNeuronCircle.h" />
+    <ClInclude Include="NVNeuronCurve.h" />
     <ClInclude Include="NVNeurons.h" />
     <ClInclude Include="RotateGrid.h" />
     <ClInclude Include="RotateRectangle.h" />

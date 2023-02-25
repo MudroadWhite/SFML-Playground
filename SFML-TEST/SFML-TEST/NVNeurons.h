@@ -1,7 +1,14 @@
 #pragma once
 #include "NVNeuron.h"
+#include "NVNeuronCircle.h"
+#include "NVNeuronCurve.h"
 
 // IMPORTANT TODO: change neurons weights to 3D vector
+
+struct NVNeuronShape {
+	NVNeuronCircle circle;
+	NVNeuronCurve curve;
+};
 
 class NVNeurons
 {
@@ -11,7 +18,7 @@ public:
 	void Render();
 	void Step();
 	void Update(); // receive events for window?
-	void SetupNeurons();
+	void Init();
 	void SetNeuronsClock(sf::Clock* l_clock);
 	void SetNeuronsWindow(Window* l_window);
 	void SetBreatheAmp(float l_breatheAmp);
@@ -28,9 +35,7 @@ private:
 	sf::Vector2f m_origin;
 
 	std::vector<std::vector<std::vector<float>>> m_weights;
-	std::vector<NVNeuron> m_neurons;
-
-	// TODO: window and clock should be put here?
+	std::vector<NVNeuronShape> m_neurons;
 
 	sf::Clock* m_clock;
 	Window* m_window;
